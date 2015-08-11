@@ -1,0 +1,35 @@
+Firefogg - video encoding and uploading for Firefox
+           http://firefogg.org/
+           2008-2014 - GPL 3.0
+
+Firefogg provides an API that allows websites to encode videos before uploading
+them to the server; websites provide the encoding settings.
+upload is than via HTTP POST. 
+To provide resume functionality your server must support chunk based POST
+upload as described at http://firefogg.org/dev/chunk_post.html
+
+For documentation and more information on how to use Firefogg can be found at
+http://firefogg.org/dev/
+
+To build you need ant:
+  get binary apps with ./get_binaries.sh
+
+  to build xpi for linux, macosx, win32 run: ./build.sh
+
+  if you change src/nsIFirefogg.idl run: ./src/make.sh
+  (* you need xpidl (part of firefox-dev),
+   * you most likely have to adjust the paths in the makefile before you run it)
+
+Examples using Firefogg:
+  git clone git://r-w-x.org/FirefoggDjangoExample.git
+and
+  git clone git://r-w-x.org/FirefoggPHPExample.git
+
+more info on http://firefogg.org/dev/
+
+
+Firefogg uses the follwoing commandline tools:
+  ffmpeg2hteora - http://v2v.cc/~j/ffmpeg2hteora
+  ffmpeg        - http://ffmpeg.org/
+  ipc component - http://hg.mozilla.org/ipccode/
+

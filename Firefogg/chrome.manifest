@@ -1,0 +1,14 @@
+content firefogg        chrome/content/
+overlay chrome://browser/content/browser.xul    chrome://firefogg/content/browser.xul
+
+resource   firefogg     modules/
+
+interfaces components/nsIFirefogg.xpt
+component {5960e4b8-89d1-4c20-ae24-4d10d0900c4d} components/Firefogg.js
+contract @firefogg.org/fireogg;1 {5960e4b8-89d1-4c20-ae24-4d10d0900c4d}
+category JavaScript-global-constructor Firefogg @firefogg.org/fireogg;1
+
+interfaces components/nsIFirefoggProtocol.xpt
+component {789409b9-2e3b-4682-a5d1-71ca80a76456} components/FirefoggProtocol.js
+contract @mozilla.org/network/protocol;1?name=firefogg {789409b9-2e3b-4682-a5d1-71ca80a76456}
+

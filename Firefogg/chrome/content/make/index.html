@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make Web Video</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="shortcut icon" type="image/png" href="http://firefogg.org/favicon.ico"/>
+        <link href="css/make.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/html5slider.js"></script>
+        <script type="text/javascript" src="js/make.js?322"></script>
+    </head>
+    <body>
+<div id="main">
+<h1>Make Web Video</h1>
+<div id="content">
+    <div id="overview">
+    <div class="step first" id="step1">
+        Select File 
+    </div>
+    <div class="marker">
+        &gt;&gt; 
+    </div>
+    <div class="step" id="step2">
+       Options 
+    </div>
+    <div class="marker">
+        &gt;&gt; 
+    </div>
+    <div class="step" id="step3">
+       Encode 
+    </div>
+    <div class="marker">
+        &gt;&gt; 
+    </div>
+    <div class="step" id="step4">
+       Done 
+    </div>
+    </div>
+    <br clear="both">
+    <div id="select" class="card">
+        Please select the media file you want to encode
+    </div>
+    <div id="options" class="card">
+        <div id="info"></div>
+        <br />
+        <br />
+        <span class="txt">Format</span>:
+            <select id="format">
+                <option class="vp9" value='vp9'>WebM (VP9/Opus)</option>
+                <option value='vp8' selected>WebM (VP8/Vorbis)</option>
+                <option value='theora'>Ogg (Theora/Vorbis)</option>
+            </select>
+        <br />
+        Preset:
+            <select id="preset">
+            </select>
+        <br />
+    </div>
+    <div id="advancedOptions" class="card">
+        <div id="advancedInfo"></div>
+        <br />
+        <form id="videoOptions">
+        Format:
+            <select name="videoCodec" id="videoCodec">
+                <option class="vp9" value='vp9'>WebM (VP9/Opus)</option>
+                <option value='vp8' selected>WebM (VP8/Vorbis)</option>
+                <option value='theora'>Ogg (Theora/Vorbis)</option>
+            </select>
+        <br />
+        <input type="checkbox" id="enableVideo" name="video" checked> Video
+        <span id="videoDisabled">(disabled)</span>
+        <br />
+<div id="videoSettings">
+            Size: <input type="text" name="width">
+                x <input type="text" name="height">
+             (width x height)
+        <br />
+            Framerate: <input type="text" name="framerate">
+            (i.e. 25 or 3000:1001)
+        <br />
+            Aspect ratio: <input type="text" name="aspect">
+            (i.e. 4:3 or 16:9)
+        <!--
+        <br />
+            no upscaling: <input type="checkbox" name="noUpscaling">
+        <br />
+            Max Size: <input type="text" name="width" size=8>
+                x <input type="text" name="height" size=8>
+        -->
+        <br />
+        <br />
+            Bitrate: <input type="text" name="videoBitrate" id="videoBitrate">
+            (in kb/s)
+        <br />
+            Quality: <input type="text" name="videoQuality">
+            (values from 0 to 10)
+        <br />
+            Keyframe interval: <input type="text" name="keyframeInterval">
+            (interval in frames)
+        <br />
+            <input type="checkbox" name="twopass" id="twopass">
+            2 Pass encoding
+            <span class="theoraOption">
+                <input type="checkbox" name="softtarget">
+                Soft target
+            </span>
+        <br />
+            <input type="checkbox" name="denoise">
+            Denoise
+        <br />
+            <input type="checkbox" name="deinterlace">
+            Deinterlace
+<!--
+        <br />
+            Crop: 
+            top: <input type="text" name="cropTop" size=10>
+            left: <input type="text" name="cropLeft" size=10>
+            bottom: <input type="text" name="cropBottom" size=10>
+            right: <input type="text" name="cropRight" size=10>
+        <br />
+            Saturation: <input type="text" name="saturation" size=10>
+            Brightness: <input type="text" name="brightness" size=10>
+            Contrast: <input type="text" name="contrast" size=10>
+            Gamma: <input type="text" name="gamma">
+        <br />
+            Start time: <input type="text" name="startTime">
+            End time: <input type="text" name="endTime">
+        only encode a part of the video, value in seconds
+-->
+</div>
+        <input type="checkbox" id="enableAudio" name="audio" checked> Audio
+        <span id="audioDisabled">(disabled)</span>
+        <br />
+<div id="audioSettings">
+        Quality:
+        <span class="audioQualityValue"></span>
+        <input name="audioQuality" type="range" min="-1" max="10" step="0.1" value="3" onchange="updateAudioQuality(this.value)"/>
+        <br />
+        From low -1 (~45 kbit/s) to high 10 (~500 kbit/s) (<a href="http://en.wikipedia.org/wiki/Vorbis#Technical_details" target="_new">more</a>)
+        <br />
+        <br />
+        Channels:
+            <select name="channels">
+                <option value='1'>Mono</option>
+                <option value='2' selected>Stereo</option>
+                <option value='6'>5.1</option>
+            </select>
+        <br />
+        Samplerate: 
+            <select name="samplerate" id="samplerate">
+                <option value='48000' selected>48 kHz</option>
+                <option value='44100'>44.1 kHz</option>
+                <option value='22050' >22,050 Hz</option>
+            </select>
+</div>
+<div class="theoraOption">
+        <input type="checkbox" id="enableMetadata" name="metadata"> Metadata
+        <span id="metadataDisabled">(disabled)</span>
+        <br />
+<div id="metadataSettings">
+            Title:  
+            <input type="text" name="title">
+        <br />
+            Artist:   
+            <input type="text" name="artist">
+        <br />
+            Date:   
+            <input type="text" name="date">
+        <br />
+            Location:   
+            <input type="text" name="location">
+        <br />
+            Organization:   
+            <input type="text" name="organization">
+        <br />
+            Copyright:  
+            <input type="text" name="copyright">
+        <br />
+            License:  
+            <input type="text" name="license">
+        <br />
+            Contact:
+            <input type="text" name="contact">
+        <br />
+</div>
+</div>
+        </form>
+    </div>
+    <div id="audioOptions" class="card">
+        <div id="audioInfo"></div>
+        <form id="audioForm">
+        Quality:
+        <span class="audioQualityValue"></span>
+        <input name="audioQuality" type="range" min="-1" max="10" step="0.1" value="3" onchange="updateAudioQuality(this.value)"/>
+        <br />
+        From low -1 (~45 kbit/s) to high 10 (~500 kbit/s) (<a href="http://en.wikipedia.org/wiki/Vorbis#Technical_details" target="_new">more</a>)
+        <br />
+        <br />
+        Channels:
+            <select name="channels">
+                <option value='1'>Mono</option>
+                <option value='2' selected>Stereo</option>
+                <option value='6'>5.1</option>
+            </select>
+        <br />
+        Samplerate: 
+            <select name="samplerate">
+                <option value='48000'>48 kHz</option>
+                <option value='44100' selected>44.1 kHz</option>
+                <option value='22050' >22,050 Hz</option>
+            </select>
+        </form>
+    </div>
+    <div id="encoding" class="card">
+        Encoding... <span id="percent">0</span> %
+        <br />
+        <progress id="encodingProgress" value="0" max="1" style="width:300px"></progress>
+<div>
+        <span id="eta"></span>
+</div>
+    </div>
+    <div id="result" class="card">
+        <div id="resultOk">
+        <video id="resultPreview" controls></video>
+        <br />
+        Encoding complete.
+        </div>
+        <div id="resultFailed">
+            Encoding failed.
+        </div>
+    </div>
+    <div id="buttons" style="display:none">
+        <input type="button" id="selectButton" value="Select File...">
+        <input type="button" id="simpleButton" value="Simple Options...">
+        <input type="button" id="advancedButton" value="Advanced Options...">
+        <input type="button" id="encodeButton" value="Encode">
+        <input type="button" id="cancelButton" value="Cancel">
+        <input type="button" id="againButton" value="Encode another file">
+    </div>
+    <pre id="debug"></pre>
+    <div id="warning" style="display:none">
+        This page requires <a href="http://getfirefox.com/">Firefox</a> with the latest version of <a href="http://firefogg.org/">Firefogg</a> installed.
+        <br>With those installed you can convert videos to Ogg Theora and WebM on this page.
+    </div>
+</div>
+</div>
+<noscript>
+    <div style="font-weight: bold; text-align: center;padding-top: 20%">
+        You have to enable JavaScript to use this site.
+    </div>
+</noscript>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+#include "nsISupports.idl"
+
+[scriptable, uuid(cec5174d-0aa8-4fd1-a4e5-085f5ea53846)]
+interface nsIFirefoggProtocol : nsISupports
+{
+  AString addUrl(in AString url);
+  void removeUrl(in AString key);
+};
+

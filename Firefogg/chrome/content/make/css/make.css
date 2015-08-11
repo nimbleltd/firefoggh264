@@ -1,0 +1,138 @@
+h1, h2 {
+  text-align: center;
+}
+h1 {
+  font-size: 48px;
+  letter-spacing: 0.25em;
+  margin-bottom: 0;
+  line-height: 0.8em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Vera Sans, sans-serif;
+  font-size: 12pt;
+  color: #000;
+  background: #fff;
+}
+
+.card {
+    display: none;
+    width: 612px;
+ //   min-height: 360px;
+    padding: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    text-align: center;
+}
+#buttons {
+    width: 644px;
+    text-align: center;
+}
+.active {
+    display: block
+}
+/*
+#preview {
+    width: 320px;
+    height: 240px;
+}
+*/
+#resultPreview {
+    max-height: 360px;
+    max-width: 612px
+}
+#overview {
+    width: 574px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#overview .marker{
+    width: 30px;
+    height: 28px;
+    margin-top: 8px;
+    float: left;
+    color: #bbb;
+}
+#overview .step{
+    width: 120px;
+    height: 28px;
+    padding: 0;
+    padding-top: 8px;
+    text-align: center;
+    margin: 0;
+    float: left;
+    //background: #bbb;
+    //border-left: 1px solid #999;
+    color: #bbb;
+}
+#overview .first{
+    border: 0;
+}
+
+#overview .current{
+    //background: #dfa;
+    color: #000;
+}
+#overview .done{
+    //background: #dbf;
+    color: #bbb;
+}
+#main {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+#content {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 644px;
+}
+#videoOptions {
+    text-align: left;
+    padding-left: 136px;
+}
+#videoOptions input[type=text] {
+    width: 60px;
+}
+#audioDisabled, #videoDisabled {
+    display:none;
+}
+#audioForm {
+    //text-align: left;
+    //padding-left: 180px;
+    padding-top: 16px;
+}
+#debug {
+    display: none;
+}
+#warning {
+    z-index: 100;
+    position: fixed;
+    top: 256px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    text-align: center;
+}
+
+progress {
+    margin: 4px;
+}
+
+#audioSettings, #videoSettings, #metadataSettings {
+    padding-left: 28px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#metadataSettings {
+    display: none;
+    text-align: right;
+    padding-right: 56px;
+}
+#metadataSettings input[type="text"] {
+    width: 256px;
+}

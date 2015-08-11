@@ -1,0 +1,7 @@
+bin
+dist
+website
+components/video/libfirefoggencoder.dll
+components/video/libfirefoggencoder.res
+components/video/libfirefoggencoder.dll.manifest
+components/video/fake.exp

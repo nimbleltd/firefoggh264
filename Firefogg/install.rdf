@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+	  <em:id>firefogg@firefogg.org</em:id>
+	  <em:version>git</em:version>
+	  <em:type>2</em:type>
+
+    <!-- Firefox -->
+    <em:targetApplication>
+      <Description>
+       	<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+      	<em:minVersion>35</em:minVersion>
+      	<em:maxVersion>40.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>		
+
+    <!-- Front End MetaData -->
+    <em:name>Firefogg</em:name>
+    <em:description>video encoding and uploading for Firefox</em:description>
+    <em:creator>firefogg.org</em:creator>
+    <em:homepageURL>http://firefogg.org/</em:homepageURL>
+    <em:iconURL>chrome://firefogg/content/icon.png</em:iconURL>
+    <em:unpack>true</em:unpack>
+    <em:updateURL>https://firefogg.org/linux/update.rdf</em:updateURL>
+  </Description>
+</RDF>
+

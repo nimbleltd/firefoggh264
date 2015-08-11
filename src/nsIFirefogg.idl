@@ -1,0 +1,55 @@
+#include "nsISupports.idl"
+#include "domstubs.idl"
+#include "nsIFile.idl"
+
+interface nsIDOMFile;
+
+[function, scriptable, uuid(e9fe2394-2e6a-458a-95b1-7e1a976859bd)]
+interface foggIProgress : nsISupports
+{
+    void callback(in AString data, [optional] in nsIDOMFile file);
+};
+
+[function, scriptable, uuid(59a7388a-17f7-45e4-b35e-7d8a9843f816)]
+interface foggICallback : nsISupports
+{
+    void callback(in AString data, [optional] in nsIDOMFile file);
+};
+
+[scriptable, uuid(68cda0b0-b6e7-11dd-ad8b-0800200c9a66)]
+interface nsIFirefogg : nsISupports
+{
+  readonly attribute string version;
+  readonly attribute string state;
+  readonly attribute string resultUrl;
+  readonly attribute string responseText;
+  readonly attribute string sourceFilename;
+  readonly attribute string sourceInfo;
+  readonly attribute string previewUrl;
+  readonly attribute nsIDOMFile source;
+  readonly attribute nsIDOMFile video;
+
+  string status();
+  string encodingstatus();
+  float progress();
+
+  boolean selectVideo();
+  boolean selectVideoUrl(in AString url);
+  boolean saveVideoAs();
+  boolean setFormat(in AString format);
+
+  void encode(in AString options,
+              [optional] in foggICallback callback,
+              [optional] in foggIProgress progress);
+
+  string cancel();
+  void deleteVideo();
+
+  boolean dropFile(in nsIDOMFile file); //deprecated, should only be setInput
+  boolean setInput(in nsIDOMFile file);
+
+  //can only be used from other extensions that want to use Firefogg
+  boolean setInputVideo(in nsIFile file);
+
+};
+

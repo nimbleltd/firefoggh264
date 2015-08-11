@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="FirefoggOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <menupopup id="menu_ToolsPopup">
+        <menuitem
+            id="FirefoggMakeVideo"
+            label="Make Web Video" 
+            oncommand="gBrowser.selectedTab = gBrowser.addTab('chrome://firefogg/content/make/index.html');"
+        />
+    </menupopup>
+    <menupopup id="appmenuSecondaryPane">
+        <menuitem
+            id="appmenu_FirefoggMakeVideo"
+            label="Make Video" 
+            insertafter="appmenu_downloads"
+            oncommand="gBrowser.selectedTab = gBrowser.addTab('chrome://firefogg/content/make/index.html');"
+            class="menuitem-iconic"
+            image="chrome://firefogg/content/icon.png"
+        />
+    </menupopup>
+</overlay>
